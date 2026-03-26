@@ -9,7 +9,7 @@ symbols=["AAPL","MSFT","GOOGL"]
 
 for short_window,long_window in windows:
 
-    plt.figure()
+    plt.figure(figsize=(10, 5))
 
     for symbol in symbols:
 
@@ -31,9 +31,10 @@ for short_window,long_window in windows:
     plt.xlabel("Time")
     plt.ylabel("Returns")
     plt.title("Strategy Returns Over Assets")
+    plt.grid(True, linestyle="--", alpha=0.5)
     plt.show()
 
-    plt.figure()
+    plt.figure(figsize=(10, 5))
     
     for symbol in symbols:
 
@@ -47,4 +48,5 @@ for short_window,long_window in windows:
     plt.legend()
     plt.xlabel("Time")
     plt.ylabel("Drawdown")
+    plt.grid(True, linestyle="--", alpha=0.5)
     plt.show()
