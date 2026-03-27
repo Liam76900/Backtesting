@@ -35,11 +35,6 @@ for short_window,long_window in windows:
     plt.show()
 
     plt.figure(figsize=(10, 5))
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 5caa5b849eb32e1e16a62febca2176c8ff6afe95
     for symbol in symbols:
 
         data=load_data(symbol)
@@ -50,13 +45,8 @@ for short_window,long_window in windows:
         plt.plot(data["Drawdown"], label=symbol)
     plt.title("Drawdown Over Time")
     plt.legend()
-<<<<<<< HEAD
     plt.grid(True, linestyle="--", alpha=0.5)
     plt.xlabel("Time")
     plt.ylabel("Drawdown")
-=======
-    plt.xlabel("Time")
-    plt.ylabel("Drawdown")
     plt.grid(True, linestyle="--", alpha=0.5)
->>>>>>> 5caa5b849eb32e1e16a62febca2176c8ff6afe95
     plt.show()

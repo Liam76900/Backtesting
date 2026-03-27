@@ -1,10 +1,7 @@
 __pycache__/
-<<<<<<< HEAD
 *.py[cod]
 .vscode/
 .env
 venv/
 *.log
-=======
 *.pyc
->>>>>>> 5caa5b849eb32e1e16a62febca2176c8ff6afe95
