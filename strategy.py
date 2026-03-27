@@ -15,4 +15,6 @@ def create_signals(data, short_window, long_window):
 
     data["Signal"]=data["Signal"].shift(1)
 
+    data=data.dropna()
+
     return data
