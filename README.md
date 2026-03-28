@@ -43,6 +43,29 @@ The strategy is also tested against a selection of different short-term and long
 | MSFT  | 20 / 100   |      04.19          |       58.03       |         14.75             | 0.356  |     -13.07       |
 | GOOGL | 20 / 100   |      12.99          |       56.43       |         20.59             | 0.706  |     -13.08       |
 
+#Plot of Strategy Returns of all assets with the [5, 20]
+ day window against time
+
 <p align="center">
-  <img src="./images/moving-average-ten-fifty.png.png" alt="Moving Average" width="600"/>
+  <img src=".\images\five-twenty.png" alt="Moving Average" width="600"/>
+</p>
+
+#Plot of Strategy Returns of all assets with the [10, 50]
+ day window against time
+
+<p align="center">
+  <img src=".\images\ten-fifty.png" alt="Moving Average" width="600"/>
+</p>
+
+#Plot of Strategy Returns Vs Market Returns of all assets with the [10, 50]
+day window against time
+
+<p align="center">
+  <img src=".\images\ten-fifty-market-strategy.png" alt="Moving Average" width="600"/>
+</p>
+
+#Plot of Strategy Returns Drawdowns of all assets with the [10, 50] day window against time
+
+<p align="center">
+  <img src=".\images\ten-fifty-d.png" alt="Moving Average" width="600"/>
 </p>
