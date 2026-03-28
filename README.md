@@ -42,3 +42,7 @@ The strategy is also tested against a selection of different short-term and long
 | AAPL  | 20 / 100   |      08.99          |       54.49       |         10.68             | 0.872  |     -11.31       |
 | MSFT  | 20 / 100   |      04.19          |       58.03       |         14.75             | 0.356  |     -13.07       |
 | GOOGL | 20 / 100   |      12.99          |       56.43       |         20.59             | 0.706  |     -13.08       |
+
+<p align="center">
+  <img src="./images/moving-average-ten-fifty.png.png" alt="Moving Average" width="600"/>
+</p>

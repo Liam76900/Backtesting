@@ -4,7 +4,7 @@ from strategy import create_signals
 from backtest import backtesting
 from metrics import calculate_metrics
 
-#Assigns the different parameters for the windows of time and the different assets
+#Assigns the different parameters for the windows of time and the different assets so we can cycle through them in our loops
 
 windows=[(5,20),(10,50),(20,100)]
 assets=["AAPL","MSFT","GOOGL"]
@@ -13,7 +13,7 @@ assets=["AAPL","MSFT","GOOGL"]
 
 for short_window,long_window in windows:
 
-    #Creates a new figure for our plot
+    #Creates a new figure for our plot as we will be plotting two graphs each loop
 
     plt.figure(figsize=(10, 5))
 
@@ -28,12 +28,12 @@ for short_window,long_window in windows:
         data=backtesting(data)
         sharpe_ratio, annualised_volatility, max_drawdown=calculate_metrics(data)
 
-        #Outputs the dataframe for Cumulative Market and Strategy Return values
+        #Outputs the dataframe for cumulative market and strategy return values
 
         print(f"Results for {asset} for {short_window} day short window and {long_window} day long window is")
         print(data[["Cumulative_Market", "Cumulative_Strategy"]].tail())
 
-        #Outputs Risk Metrics
+        #Outputs risk metrics
 
         print("Sharpe ratio:")
         print(sharpe_ratio)
@@ -42,7 +42,7 @@ for short_window,long_window in windows:
         print("Max Drawdown:")
         print(max_drawdown)
 
-        #Plots Cumulative Strategy Returns of all the different asssets over the time frame
+        #Plots cumulative strategy returns of all the different asssets over the time frame
 
         plt.plot(data["Cumulative_Strategy"], label=asset)
 
@@ -80,5 +80,26 @@ for short_window,long_window in windows:
     plt.xlabel("Time")
     plt.ylabel("Drawdown")
     plt.title("Drawdown Over Time")
+    plt.grid(True, linestyle="--", alpha=0.5)
+    plt.show()
+
+    colours=["blue", "red", "orange"]
+
+    for i, asset in enumerate(assets):
+
+        data=load_data(asset)
+        data=create_signals(data, short_window, long_window)
+        data=backtesting(data)
+        sharpe_ratio, annualised_volatility, max_drawdown=calculate_metrics(data)
+
+        colour=colours[i]
+
+        plt.plot(data["Cumulative_Market"], color=colour, linestyle="-", label=f"{asset}-Market")
+        plt.plot(data["Cumulative_Strategy"], color=colour, linestyle="--", label=f"{asset}-Strategy")
+
+    plt.legend()
+    plt.xlabel("Time")
+    plt.ylabel("Returns")
+    plt.title("Strategy Returns Vs Market Returns")
     plt.grid(True, linestyle="--", alpha=0.5)
     plt.show()
