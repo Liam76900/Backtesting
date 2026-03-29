@@ -64,7 +64,7 @@ day window against time
   <img src=".\images\ten-fifty-market-strategy.png" alt="Moving Average" width="600"/>
 </p>
 
-#Plot of Strategy Returns Drawdowns of all assets with the [10, 50] day window against time
+#Plot of Strategy Return Drawdowns of all assets with the [10, 50] day window against time
 
 <p align="center">
   <img src=".\images\ten-fifty-d.png" alt="Moving Average" width="600"/>
