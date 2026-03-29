@@ -17,7 +17,7 @@ for short_window,long_window in windows:
 
     plt.figure(figsize=(10, 5))
 
-    #Loops through the different assets
+    #Loops through the different assets to load its specific stock data
 
     for asset in assets:
 
@@ -59,7 +59,7 @@ for short_window,long_window in windows:
 
     plt.figure(figsize=(10, 5))
 
-    #Loops through different assets
+    #Loops through different assets to load its specific stock data
 
     for asset in assets:
 
@@ -83,19 +83,30 @@ for short_window,long_window in windows:
     plt.grid(True, linestyle="--", alpha=0.5)
     plt.show()
 
-    colours=["blue", "red", "orange"]
+    #Forms a list of colours to loop over for different colours of lines for different assets in the graph for strategy return values vs market return values
+
+    colours=["blue", "orange", "green"]
+
+    #Cycles i over the indexes formed by the function enumerate() so that each asset has a specific colour of line in the graph and cycles asset over the different assets in assets to plot the different return data for the different assets
 
     for i, asset in enumerate(assets):
+
+        #Assigned variables are ran through the different defined functions
 
         data=load_data(asset)
         data=create_signals(data, short_window, long_window)
         data=backtesting(data)
-        sharpe_ratio, annualised_volatility, max_drawdown=calculate_metrics(data)
+
+        #Uses the value of i to assign the variable colour to the colour in colours at index i so its corresponding asset has the right colour line in the graph
 
         colour=colours[i]
 
+        #Plots the strategy return values vs the market return values with the different assets with its corresponding colours and the market and strategy return values having different style of lines to be able to differentiate accordingly
+
         plt.plot(data["Cumulative_Market"], color=colour, linestyle="-", label=f"{asset}-Market")
         plt.plot(data["Cumulative_Strategy"], color=colour, linestyle="--", label=f"{asset}-Strategy")
+
+    #Adds legend, axis labels, title, gridlines to graph and returns the graph
 
     plt.legend()
     plt.xlabel("Time")
